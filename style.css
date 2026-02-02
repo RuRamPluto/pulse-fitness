@@ -195,8 +195,8 @@ body {
 
 .image-wrapper {
     position: relative;
-    transform: rotateY(-15deg) rotateX(10deg);
-    transition: var(--transition);
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out;
 }
 
 .image-wrapper:hover {
@@ -238,6 +238,22 @@ body {
 
 .stat-item {
     text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stat-item.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stat-item:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.stat-item:nth-child(3) {
+    transition-delay: 0.4s;
 }
 
 .stat-value {
